@@ -1,0 +1,30 @@
+{
+    "name": "@1inch/1inch-token",
+    "version": "0.0.1",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:1inch-exchange/1inch-token.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@openzeppelin/contracts": "^3.3.0"
+    },
+    "devDependencies": {
+        "solc": "^0.7.6",
+        "truffle": "^5.1.58",
+        "truffle-flattener": "^1.5.0",
+        "@truffle/hdwallet-provider": "^1.2.0"
+    },
+    "scripts": {
+        "test": "truffle test --stacktrace",
+        "coverage": "truffle run coverage",
+        "coveralls": "truffle run coverage && cat coverage/lcov.info | coveralls",
+        "lint:js": "eslint .",
+        "lint:js:fix": "eslint . --fix",
+        "lint:sol": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
+        "lint:sol:fix": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix",
+        "lint": "yarn run lint:js && yarn run lint:sol",
+        "lint:fix": "yarn run lint:js:fix && yarn run lint:sol:fix"
+    }
+}
