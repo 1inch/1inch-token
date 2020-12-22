@@ -11,13 +11,16 @@
         "@openzeppelin/contracts": "^3.3.0"
     },
     "devDependencies": {
-        "solc": "^0.7.6",
+        "solc": "^0.6.12",
         "truffle": "^5.1.58",
         "truffle-flattener": "^1.5.0",
         "@truffle/hdwallet-provider": "^1.2.0"
     },
     "scripts": {
         "test": "truffle test --stacktrace",
+        "dist": "yarn dist:token && yarn optimize",
+        "dist:token": "truffle-flattener ./contracts/OneInch.sol | awk '/SPDX-License-Identifier/&&c++>0 {next} 1' | awk '/pragma experimental ABIEncoderV2;/&&c++>0 {next} 1' > ./OneInch.full.sol && solcjs --bin --abi --optimize ./OneInch.full.sol && mv ./__OneInch_full_sol_OneInch.bin ./OneInch.full.bin && mv ./__OneInch_full_sol_OneInch.abi ./OneInch.full.abi && rm ./*_sol_*",
+        "optimize": "node optimize.js",
         "coverage": "truffle run coverage",
         "coveralls": "truffle run coverage && cat coverage/lcov.info | coveralls",
         "lint:js": "eslint .",
