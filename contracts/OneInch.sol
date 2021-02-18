@@ -9,11 +9,17 @@ import "./ERC20Permit.sol";
 
 contract OneInch is ERC20Permit, ERC20Burnable, Ownable {
     constructor(address _owner) public ERC20("1INCH Token", "1INCH") EIP712("1INCH Token", "1") {
-        _mint(_owner, 1.5e9 ether);
         transferOwnership(_owner);
     }
 
     function mint(address to, uint256 amount) external onlyOwner {
         _mint(to, amount);
+    }
+
+    /**
+    * @dev Returns the bep token owner.
+    */
+    function getOwner() external view returns (address) {
+        return owner();
     }
 }
