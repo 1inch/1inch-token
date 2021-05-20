@@ -12,11 +12,12 @@ contract Manageable is Context, Ownable {
     event ManagementTransferred(address indexed previousManager, address indexed newManager);
 
     /**
-     * @dev Initializes the contract setting the `manager_` as the initial manager.
+     * @dev Initializes the contract setting the manager as the initial owner.
      */
-    constructor (address manager_) internal {
-        _manager = manager_;
-        emit ManagementTransferred(address(0), manager_);
+    constructor () internal {
+        address msgSender = _msgSender();
+        _manager = msgSender;
+        emit OwnershipTransferred(address(0), msgSender);
     }
 
     /**
