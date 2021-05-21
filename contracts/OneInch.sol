@@ -3,12 +3,11 @@
 pragma solidity ^0.6.0;
 
 import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "./ERC20Permit.sol";
 
 
-contract OneInch is ERC20Burnable, ERC20Permit, AccessControl {
+contract OneInch is ERC20Permit, AccessControl {
     using SafeERC20 for IERC20;
 
     bytes32 public constant DEPOSITOR_ROLE = keccak256("DEPOSITOR_ROLE");
