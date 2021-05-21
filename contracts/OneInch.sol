@@ -2,13 +2,12 @@
 
 pragma solidity ^0.6.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "./ERC20Permit.sol";
 import "./Manageable.sol";
 
 
-contract OneInch is ERC20Burnable, ERC20Permit, Manageable {
+contract OneInch is ERC20Permit, Manageable {
     using SafeERC20 for IERC20;
 
     constructor(address _owner, address _childChainManager) public ERC20("1INCH Token", "1INCH") EIP712("1INCH Token", "1") {
