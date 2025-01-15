@@ -4,7 +4,7 @@
     "description": "",
     "repository": {
         "type": "git",
-        "url": "git@github.com:1inch-exchange/1inch-token.git"
+        "url": "git@github.com:1inch/1inch-token.git"
     },
     "license": "MIT",
     "dependencies": {
