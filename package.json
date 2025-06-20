@@ -29,5 +29,8 @@
         "lint:sol:fix": "solhint --max-warnings 0 \"contracts/**/*.sol\" --fix",
         "lint": "yarn run lint:js && yarn run lint:sol",
         "lint:fix": "yarn run lint:js:fix && yarn run lint:sol:fix"
+    },
+    "resolutions": {
+        "elliptic": "^6.5.7"
     }
 }
